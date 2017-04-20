@@ -1,0 +1,21 @@
+---
+
+- name: Install ntp server
+  yum: name=ntp state=present
+  tags: ntp
+
+
+- name: Copy config files
+  template: src=ntp.conf dest=/etc/ntp.conf
+  tags: ntp
+  notify: restart ntp
+
+- name: setting up firewall-cmd
+  command: "{{item}}"
+  with_items:
+     - firewall-cmd --add-service=ntp --permanent
+     - firewall-cmd --reload
+
+- name: starting service
+  service: name=ntpd state=started enabled=yes
+  tags: ntp 

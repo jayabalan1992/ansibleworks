@@ -1,0 +1,6 @@
+[web]
+192.168.100.100 ansible_user=root ansible_ssh_pass=netsys
+
+[ntp]
+192.168.100.101 ansible_user=root ansible_ssh_pass=netsys
+

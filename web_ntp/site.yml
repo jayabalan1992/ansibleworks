@@ -1,0 +1,16 @@
+---
+
+
+- name: apply common configurations
+  hosts: all
+  roles: 
+    - ntp
+     
+
+
+- name: installing web server and its dependencies
+  hosts: web
+  roles:
+    - web 
+   
+          
