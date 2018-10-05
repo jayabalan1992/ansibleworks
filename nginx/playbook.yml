@@ -10,5 +10,15 @@
 
     - name: start nginx
       service:
-          name: nginx
-          state: started
+        name: nginx
+        state: started
+
+    - name: Install ntp
+      yum:
+        name: ntp
+        state: present
+
+    - name: Start Nginx
+      service:
+        name: ntp
+        state: restarted
